@@ -357,7 +357,6 @@ def resultado(request, projeto_id):
         print('matriz =>', matriz)
         print('>>>>>>>>>>>>>>>')
 
-
         peso_matriz = _normalizar(matriz)
         pesos_decisores.append(peso_matriz)
 
@@ -625,9 +624,13 @@ def _normalizar(lista_elementos):
     for elemento in lista_elementos:
         soma = sum(elemento)
         lista_dos_somados.append(soma)
+
     
+    ''' 
+    Calcula o menor e o maior elementos antes de entrar no loop (só realiza a
+    operação uma vez'''
+    maior , menor = max(lista_dos_somados), min(lista_dos_somados)
     for elemento_da_soma in lista_dos_somados:
-        maior , menor = max(lista_dos_somados), min(lista_dos_somados)
         if maior == menor:
             regular = 0
         else:
@@ -642,18 +645,33 @@ def _normalizar(lista_elementos):
         if i > 0:
             lista_sem_zero.append(i)
 
+    
+    
     for elemento_normalizado in lista_normalizada:
+        menor_zero = 0
         if elemento_normalizado > 0:
             lista_final_normalizada.append(elemento_normalizado)
         else:
-            # >>>>> erro aqui
-            # min() arg is an empty sequence
-            print('>>>>>>>>>>>>>>>')
-            print('lista_sem_zero =>', lista_sem_zero)
-            print('>>>>>>>>>>>>>>>')
-            menor_zero = min(lista_sem_zero)
-            lista_final_normalizada.append(menor_zero*0.01)
-
+            try:
+                """
+                Tenta encontrar um mínimo não nulo.
+                """
+                # >>>>> erro aqui
+                # min() arg is an empty sequence
+                print('>>>>>>>>>>>>>>>')
+                print('lista_sem_zero =>', lista_sem_zero)
+                print('>>>>>>>>>>>>>>>')
+                menor_zero = min(lista_sem_zero)*0.01
+            except ValueError:
+                """
+                Caso não encontre, forma uma lista de zeros.
+                Se uma matriz só possuir zeros, a normalização vai retornar
+                zero
+                """
+                menor_zero = 0
+        
+            lista_final_normalizada.append(menor_zero)
+    print(lista_final_normalizada)
     return lista_final_normalizada
 
 
