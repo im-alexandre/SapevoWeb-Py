@@ -261,7 +261,7 @@ def avaliaralternativas(request, projeto_id):
     projeto = Projeto.objects.get(id=projeto_id)
     decisores = list(Decisor.objects.filter(projeto=projeto_id, avaliou_alternativas=False).values_list('id', 'nome'))
     alternativas_id = Alternativa.objects.filter(projeto=projeto_id).values_list('codigo', flat=True)
-    criterios = Criterio.objects.filter(projeto=projeto_id)
+    criterios = Criterio.objects.filter(projeto=projeto_id, numerico=False)
 
     if not decisores:
         return redirect('resultado', projeto_id)
@@ -330,10 +330,10 @@ def resultado(request, projeto_id):
 
     projeto_id = projeto_id
     projeto = Projeto.objects.get(id=projeto_id)
-    qtd_criterios = Criterio.objects.filter(projeto=projeto_id).count()
+    criterios = Criterio.objects.filter(projeto=projeto_id, numerico=False)
+    qtd_criterios = criterios.count()
     qtd_alternativas = Alternativa.objects.filter(projeto=projeto_id).count()
     decisores = projeto.decisores.all()
-    criterios = Criterio.objects.filter(projeto=projeto_id)
 
     #### Criterios ####
     matrizes = []
