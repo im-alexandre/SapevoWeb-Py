@@ -206,7 +206,7 @@ def avaliarcriterios(request, projeto_id):
     projeto_id = projeto_id
     projeto = Projeto.objects.get(id=projeto_id)
     decisores = list(Decisor.objects.filter(projeto=projeto_id, avaliou_criterios=False).values_list('id', 'nome'))
-    criterios_cod = Criterio.objects.filter(projeto=projeto_id).values_list('codigo', flat=True)
+    criterios_cod = Criterio.objects.filter(projeto=projeto_id, numerico=False).values_list('codigo', flat=True)
 
     if not decisores:
         return redirect('avaliaralternativas', projeto_id)
