@@ -101,3 +101,4 @@ db-backup.sqlite3
 
 ### Imagens ###
 *.jpeg
+nohup.out
