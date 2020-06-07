@@ -20,23 +20,37 @@
         <br>
         <br>
         <div id="criterios">
+          <table>
+          
+<tbody>
         {% for criterios in criterios_combinados %}
+                <td>
+          <tr >{{criterios.0}}</tr>
+          <tr><input type="range" min=-3 max=3 step=1
+                                              name="{{criterios.2}}{{criterios.3}}"
+                                              value=0 list="z">
+            <datalist id="z">
+              <option value="-3"></option>
+              <option value="-2"></option>
+              <option value="-1"></option>
+              <option value="0"></option>
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+            </datalist>
+            </input>
+          </tr>
+          <trstyle="text-align center">{{criterios.1}}</tr>
+        </td>
             <!-- {{criterios}} -->
-            <strong>{{criterios.0}} VS {{criterios.1}}</strong>
-            <br>
-            <input style="margin-left: 1em" type="radio" name="{{criterios.2}}{{criterios.3}}" value=-3> Absolutamente Pior
-            <input style="margin-left: 1em" type="radio" name="{{criterios.2}}{{criterios.3}}" value=-2> Muito Pior
-            <input style="margin-left: 1em" type="radio" name="{{criterios.2}}{{criterios.3}}" value=-1> Pior
-            <input style="margin-left: 1em" type="radio" name="{{criterios.2}}{{criterios.3}}" value=0> Equivalente
-            <input style="margin-left: 1em" type="radio" name="{{criterios.2}}{{criterios.3}}" value=1> Melhor
-            <input style="margin-left: 1em" type="radio" name="{{criterios.2}}{{criterios.3}}" value=2> Muito melhor
-            <input style="margin-left: 1em" type="radio" name="{{criterios.2}}{{criterios.3}}" value=3> Absolutamente melhor
-            <br>
+            </input>
             <br>
         {% endfor %}
+        </tbody>
+
         </div>  
         <hr>
-
+          </table>
         <input type="submit" class="btn btn-outline-primary" value="Avaliar">
     </form>
     
