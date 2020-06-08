@@ -14,99 +14,14 @@
     <title>Home</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <!-- Logo do sapevo à esquerda -->
-        <a class="navbar-brand" href="/">SapevoWeb 
-            <small>
-                SAPEVO-M: 
-                <span class="letter-featured">S</span>imple 
-                <span class="letter-featured">A</span>ggregation of 
-                <span class="letter-featured">P</span>references 
-                <span class="letter-featured">E</span>xpressed by 
-                <span class="letter-featured">O</span>rdinal 
-                <span class="letter-featured">V</span>ectors – 
-                <span class="letter-featured">M</span>ulti Decision Makers
-            </small>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" 
-          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-          aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                {% url '/' as current_url %}
-                <li class="nav-item {% if request.get_full_path == current_url %}active{% endif %}">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                {% url 'metodo' as current_url %}
-                <li class="nav-item {% if request.get_full_path == current_url %}active{% endif %}">
-                    <a class="nav-link" href="{% url 'metodo' %}">Método <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.dropbox.com/s/j14u93vt12b1504/tutorial.pdf?raw=1" 
-                      target="_blank">Tutorial 
-                      <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  {% include 'partials/_navbar_header.html' %}
     <main role="main" class="container">
         {% block container %}
         {% endblock %}         
     </main>
     <!-- /.container -->
 
-    <footer class="sapevoweb-footer">
-        <figure class="figure">
-            <img id="casnav" 
-            src="https://www.dropbox.com/s/m82q1u9amw4pwxa/Heraldica%20casnav%20-%20mais%20a%20esquerda.png?raw=1" 
-            class="figure-img img-fluid rounded icones-sapevo" alt="A generic square placeholder image with rounded corners in a figure.">
-            <figcaption class="figure-caption">CASNAV</figcaption>
-        </figure>
-
-        <figure class="figure">
-            <img id="ime" src="https://www.dropbox.com/s/9dt691fbn5e2vbd/brasao%20IME%20-%20centro.jpeg?raw=1" 
-            class="figure-img img-fluid rounded icones-sapevo"  alt="A generic square placeholder image with rounded corners in a figure.">
-            <figcaption class="figure-caption">IME</figcaption>
-        </figure>
-
-        <figure class="figure">
-            <img id="uff" src="https://www.dropbox.com/s/wl42p0apmawrql0/UFF_bras%C3%A3o%20-%20mais%20a%20direita.png?raw=1" 
-            class="figure-img img-fluid rounded icones-sapevo" alt="A generic square placeholder image with rounded corners in a figure.">
-            <figcaption class="figure-caption">UFF</figcaption>
-        </figure>
-        <p>
-            "All rights reserved. The non-commercial (academic) use of this software is free of charge. 
-            <br>
-            The only thing that is asked in return is to cite this software when results are used in publications." 
-            
-        </p>
-        <p>
-            To cite this software: TEIXEIRA, Luiz Frederico Horácio de Souza de Barros; 
-            SANTOS, Marcos dos; GOMES, Carlos Francisco Simões. <br>
-            SapevoWeb Software (v.1). <br>
-            Desenvolvido no Instituto Militar de Engenharia (IME), no Centro de Análises 
-            de Sistemas Navais (CASNAV) e na Universidade Federal Fluminense (UFF). <br>
-            http://www.sapevoweb.com.
-        </p>
-        <p>
-            TEIXEIRA, Luiz Frederico Horácio de Souza de Barros; SANTOS, Marcos dos; GOMES, Carlos Francisco Simões. <br>
-            Instituto Militar de Engenharia - IME <br>
-            Seção de Engenharia de Computação - SE/8 <br>
-            Programa de Pós-Graduação em Sistemas e Computação <br>
-            <a href="mailto:luiz_frederico@id.uff.br">luiz_frederico@id.uff.br</a> <br>
-            <a href="mailto:marcosdossantos_doutorado_uff@yahoo.com">marcosdossantos_doutorado_uff@yahoo.com</a> <br>
-            <a href="mailto:cfsg1@bol.com.br">cfsg1@bol.com.br</a>
-            <br>
-            - 2018 -
-        </p>
-        <p class="visitas">
-            Visitas: {{pageview}}
-        </p>
-    </footer>
-
+{% include 'partials/_footer_base.html' %}
                 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -123,11 +38,6 @@
     <!-- Jeditable -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jeditable.js/2.0.6/jquery.jeditable.min.js"></script>
     <script src="{% static 'js/base.js' %}"></script>
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
 
     {% block custom_js %}{% endblock %}
 </body>

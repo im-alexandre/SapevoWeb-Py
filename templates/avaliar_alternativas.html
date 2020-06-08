@@ -29,8 +29,9 @@
                     <strong>{{alternativas.0}} VS {{alternativas.1}}</strong>
                     <br>
                     <input style="margin-left: 1em" type="range" min=-3 max=3 step=1
-            name="{{criterio.id}}-->{{criterio.codigo}}{{alternativas.2}}{{alternativas.3}}" value=0>Escala entre os
-            critérios</input>
+            name="{{criterio.id}}-->{{criterio.codigo}}{{alternativas.2}}{{alternativas.3}}" value=0 list="z">
+            {% include 'partials/_datalist_range.html' %}
+                    </input>
                     <br>
                 {% endfor %}
             </div>  

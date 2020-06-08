@@ -29,18 +29,10 @@
           <tr><input type="range" min=-3 max=3 step=1
                                               name="{{criterios.2}}{{criterios.3}}"
                                               value=0 list="z">
-            <datalist id="z">
-              <option value="-3"></option>
-              <option value="-2"></option>
-              <option value="-1"></option>
-              <option value="0"></option>
-              <option value="1"></option>
-              <option value="2"></option>
-              <option value="3"></option>
-            </datalist>
+            {% include 'partials/_datalist_range.html' %}
             </input>
           </tr>
-          <trstyle="text-align center">{{criterios.1}}</tr>
+          <tr>{{criterios.1}}</tr>
         </td>
             <!-- {{criterios}} -->
             </input>
