@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block container %}
+
+<h1>Cadastrar Projeto</h1>
+
+<br>
+
+<form method="post">
+    {% csrf_token %}
+    {{nome_projeto_form}}
+    <input type="submit" class="btn btn-outline-primary" value="Cadastrar">
+</form>
+
+{% if projetos %}
+
+<hr>
+
+<h2>Projetos:</h2>
+
+<br>
+
+<table class="table table-striped" style="width: 70%; margin:0 auto">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Projetos</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for projeto in projetos %}
+            <tr>
+                <th scope="row">{{projeto.id}}</th>
+                <td>{{projeto.nome}}</td>
+                <td><a href="{% url 'projeto' projeto.id %}">Acessar</a></td>
+        
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
+
+{% endblock %}

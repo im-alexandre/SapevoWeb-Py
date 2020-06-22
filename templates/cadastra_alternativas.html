@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block container %}
+
+<h1>Projeto {{projeto_nome}}</h1>
+<hr>
+<h2>Cadastrar Alternativas</h2>
+
+<br>
+
+<form method="post">
+    {% csrf_token %}
+    {{alternativa_form}}
+    <input type="submit" class="btn btn-outline-primary" value="Cadastrar">
+    <a href="{% url 'cadastracriterios' projeto_id %}" class="btn btn-outline-success">Finalizar</a>
+</form>
+
+<br>
+
+{% if alternativas %}
+
+<table class="table table-striped" style="width: 50%; margin:0 auto; text-align: left">
+    <thead>
+        <tr>
+        <th scope="col">Alternativas</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alternativa in alternativas %}
+            <tr>
+                <td><span class="edit" id="alternativa:{{alternativa.id}}" name="">{{alternativa.nome}}</span></td>
+        
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
+
+{% endblock %}

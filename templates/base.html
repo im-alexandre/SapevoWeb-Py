@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <style>        
+        .container   {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        .navbar-brand {
+            font-size: 1.40rem;
+        }
+        .navbar-brand small {
+            display:block;
+            font-size:10px;
+        }
+
+        .navbar-brand small .letter-featured {
+            font-weight: bold;
+            font-size: 1.13em;
+        }
+
+        .navbar-toggle {top:10px}
+
+        .edit {
+            cursor: pointer;
+        }
+
+        .edit input{
+            margin: 0 10px;
+        }
+
+        .edit button{
+            margin: 0 3px;
+        }
+
+        .sapevoweb-footer {
+            padding: 1rem 0 0.1rem;
+            color: #999;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-top: .05rem solid #e5e5e5;
+        }
+
+        .sapevoweb-footer p{
+            font-size: 12px;
+        }
+
+        .sapevoweb-footer img.icones-sapevo {
+            padding: 0 20px;
+            width: 80px;
+        }
+
+        .sapevoweb-footer img#casnav {
+            width: 75px;
+        }
+        .sapevoweb-footer img#uff {
+            width: 95px;
+        }
+        .visitas {
+            color: #343a40!important;
+            font-size: 14px;
+        }
+
+        @media (min-width:768px) {
+
+            .navbar-brand {
+                padding-top:20px;
+            }
+
+            .nav.navbar-nav a {
+                padding-top:30px;
+                padding-bottom:30px;
+            }
+        }
+    </style>
+
+    <title>Home</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">SapevoWeb 
+            <small>
+                SAPEVO-M: <span class="letter-featured">S</span>imple <span class="letter-featured">A</span>ggregation of <span class="letter-featured">P</span>references <span class="letter-featured">E</span>xpressed by <span class="letter-featured">O</span>rdinal <span class="letter-featured">V</span>ectors – <span class="letter-featured">M</span>ulti Decision Makers
+            </small>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                {% url '/' as current_url %}
+                <li class="nav-item {% if request.get_full_path == current_url %}active{% endif %}">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                {% url 'metodo' as current_url %}
+                <li class="nav-item {% if request.get_full_path == current_url %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'metodo' %}">Método <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.dropbox.com/s/j14u93vt12b1504/tutorial.pdf?raw=1" target="_blank">Tutorial <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main role="main" class="container">
+        {% block container %}
+        {% endblock %}         
+    </main><!-- /.container -->
+
+    <footer class="sapevoweb-footer">
+        <figure class="figure">
+            <img id="casnav" src="https://www.dropbox.com/s/m82q1u9amw4pwxa/Heraldica%20casnav%20-%20mais%20a%20esquerda.png?raw=1" class="figure-img img-fluid rounded icones-sapevo" alt="A generic square placeholder image with rounded corners in a figure.">
+            <figcaption class="figure-caption">CASNAV</figcaption>
+        </figure>
+
+        <figure class="figure">
+            <img id="ime" src="https://www.dropbox.com/s/9dt691fbn5e2vbd/brasao%20IME%20-%20centro.jpeg?raw=1" class="figure-img img-fluid rounded icones-sapevo"  alt="A generic square placeholder image with rounded corners in a figure.">
+            <figcaption class="figure-caption">IME</figcaption>
+        </figure>
+
+        <figure class="figure">
+            <img id="uff" src="https://www.dropbox.com/s/wl42p0apmawrql0/UFF_bras%C3%A3o%20-%20mais%20a%20direita.png?raw=1" class="figure-img img-fluid rounded icones-sapevo" alt="A generic square placeholder image with rounded corners in a figure.">
+            <figcaption class="figure-caption">UFF</figcaption>
+        </figure>
+        <p>
+            "All rights reserved. The non-commercial (academic) use of this software is free of charge. 
+            <br>
+            The only thing that is asked in return is to cite this software when results are used in publications." 
+            
+        </p>
+        <p>
+            To cite this software: TEIXEIRA, Luiz Frederico Horácio de Souza de Barros; SANTOS, Marcos dos; GOMES, Carlos Francisco Simões. <br>
+            SapevoWeb Software (v.1). <br>
+            Desenvolvido no Instituto Militar de Engenharia (IME), no Centro de Análises de Sistemas Navais (CASNAV) e na Universidade Federal Fluminense (UFF). <br>
+            http://www.sapevoweb.com.
+        </p>
+        <p>
+            TEIXEIRA, Luiz Frederico Horácio de Souza de Barros; SANTOS, Marcos dos; GOMES, Carlos Francisco Simões. <br>
+            Instituto Militar de Engenharia - IME <br>
+            Seção de Engenharia de Computação - SE/8 <br>
+            Programa de Pós-Graduação em Sistemas e Computação <br>
+            <a href="mailto:luiz_frederico@id.uff.br">luiz_frederico@id.uff.br</a> <br>
+            <a href="mailto:marcosdossantos_doutorado_uff@yahoo.com">marcosdossantos_doutorado_uff@yahoo.com</a> <br>
+            <a href="mailto:cfsg1@bol.com.br">cfsg1@bol.com.br</a>
+            <br>
+            - 2018 -
+        </p>
+        <p class="visitas">
+            Visitas: {{pageview}}
+        </p>
+    </footer>
+
+                
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <!-- Jeditable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jeditable.js/2.0.6/jquery.jeditable.min.js"></script>
+
+    <script>
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        var csrftoken = getCookie('csrftoken');
+        
+        $(document).ready(function() {
+            $('.edit').editable('{% url "editardados" %}', {
+                // type: 'POST',
+                id: 'tipoId',
+                name: 'nome',
+                submit : 'Salvar',
+                cancel : 'Cancelar',
+                cancelcssclass : 'btn btn-danger',
+                submitcssclass : 'btn btn-success',
+                tooltip   : 'Clique para editar…',
+                ajaxoptions: {
+                    'beforeSend': function(xhr) {
+                        xhr.setRequestHeader('X-CSRFToken', csrftoken);
+                    },
+                }
+            }
+            );
+        });
+
+    </script>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+    {% block custom_js %}{% endblock %}
+</body>

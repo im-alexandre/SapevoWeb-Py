@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block container %}
+
+<h1>Projeto {{projeto_nome}}</h1>
+<hr>
+<h2>Avaliar Alternativas</h2>
+
+<br>
+
+<form method="post">
+  {% csrf_token %}
+
+  {% for decisor in decisores %}
+  <h1>{{decisor.nome}}</h1>
+
+
+  {% for criterio in criterios %}
+  <h4>Critério - {{criterio.nome}} - ID => {{criterio.id}}</h4>
+
+  <div id="alternativas">
+    {% for alternativas in alternativas_combinadas %}
+
+    <strong>{{alternativas.0}} VS {{alternativas.1}}</strong>
+    <br>
+    <input type="hidden" name= "decisor_id" value={{decisor.id}}>
+    <input type="hidden" name= "criterio_id" value={{criterio.id}}>
+    <input style="margin-left: 1em" type="range" name="('{{alternativas.0.nome}}','{{alternativas.1.nome}}')" min=-3 max=3 step=1><br>
+    <br>
+    {% endfor %}
+  </div>  
+  <hr>
+  {% endfor %}
+  {% endfor %}
+
+  <hr>
+
+  <input type="submit" class="btn btn-outline-primary" value="Avaliar">
+</form>
+
+{% endblock %}

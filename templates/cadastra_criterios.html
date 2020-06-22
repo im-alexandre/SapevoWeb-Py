@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block container %}
+
+<h1>Projeto {{projeto_nome}}</h1>
+<hr>
+<h2>Cadastrar Critério</h2>
+
+<br>
+
+<form method="post">
+    {% csrf_token %}
+    {{criterio_form}}
+    <input type="submit" class="btn btn-outline-primary" value="Cadastrar">
+    <a href="{% url 'avaliarcriterios' projeto_id %}" class="btn btn-outline-success">Finalizar</a>
+</form>
+
+<br>
+
+{% if criterios %}
+
+<table class="table table-striped" style="width: 50%; margin:0 auto; text-align: left">
+    <thead>
+        <tr>
+            <th scope="col">Critérios</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for criterio in criterios %}
+            <tr>
+                <td><span class="edit" id="criterio:{{criterio.id}}" name="">{{criterio.nome}}</span></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
+
+{% endblock %}
