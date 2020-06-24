@@ -22,7 +22,9 @@ class ProjetoForm(forms.ModelForm):
 class AlternativaForm(forms.ModelForm):
     class Meta:
         model = Alternativa
-        fields = ('nome', 'imagem')
+        fields = ('nome',
+                  # 'imagem'
+                  )
 
 
 class CriterioForm(forms.ModelForm):

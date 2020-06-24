@@ -4,20 +4,26 @@
 <h1>Resultado | Projeto {{projeto_nome}}</h1>
 
 <h3>Pesos</h3>
-{% for peso_criterio in pesos_criterios %}
-    <p>Critério - <strong>{{peso_criterio.0}}</strong> - {{peso_criterio.1 }}</p>
+{% comment %}{% for peso_criterio in pesos_criterios %}{% endcomment %}
+    {% comment %}<p>Critério - <strong>{{peso_criterio.0}}</strong> - {{peso_criterio.1 }}</p>{% endcomment %}
 
-{% endfor %}
+{% comment %}{% endfor %}{% endcomment %}
 
 <hr>
 
 <h3>Ordenação</br>
 </h3>
 
-{% for i in resultado %}
+{% comment %}{% for i in resultado %}{% endcomment %}
 
-    {{ forloop.counter }}º -- <strong>{{i.0}}</strong> -- {{i.1}}
-    </br></br>
+    {% comment %}{{ forloop.counter }}º -- <strong>{{i.0}}</strong> -- {{i.1}}{% endcomment %}
+    {% comment %}</br></br>{% endcomment %}
+
+{% comment %}{% endfor %}{% endcomment %}
+
+{% for df in dataframes %}
+
+  {{ df }}
 
 {% endfor %}
 

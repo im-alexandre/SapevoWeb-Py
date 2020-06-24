@@ -22,7 +22,7 @@ class Alternativa(models.Model):
     projeto = models.ForeignKey('Projeto', on_delete=models.CASCADE, null=True)
     nome = models.CharField(max_length=20)
     #TODO imagem na alternativa
-    imagem = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/no-img.jpg')
+    # imagem = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/no-img.jpg')
 
     def __str__(self):
         return self.nome
