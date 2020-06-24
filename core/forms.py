@@ -23,7 +23,7 @@ class AlternativaForm(forms.ModelForm):
     class Meta:
         model = Alternativa
         fields = ('nome',
-                  # 'imagem'
+                  'imagem'
                   )
 
 

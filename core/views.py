@@ -209,7 +209,7 @@ def avaliarcriterios(request, projeto_id):
 
         # decisor.save()
 
-        return redirect('avaliaralternativas', projeto_id)
+        return redirect('resultado', projeto_id)
 
     return render(request, template_name, {
                 'decisores': decisores,
@@ -261,7 +261,7 @@ def avaliaralternativas(request, projeto_id):
 
 
 def resultado(request, projeto_id):
-    avaliacoes = AvaliacaoCriterios.object.filter(projeto_id=projeto_id)
+    avaliacoes = AvaliacaoCriterios.objects.filter(projeto_id=projeto_id)
 
     template_name = 'resultado.html'
 
