@@ -22,9 +22,11 @@
 {% comment %}{% endfor %}{% endcomment %}
 
 {% for df in dataframes %}
+{% autoescape off %}
 
   {{ df }}
 
+{% endautoescape %}
 {% endfor %}
 
 <hr>
