@@ -9,26 +9,22 @@
 
     <form method="post">
         {% csrf_token %}
-        <label for="id_decisor_id">Qual é o decisor?</label>
-        <select name="decisor_id" id="id_decisor_id">
             {% for decisor in decisores %}
-                <option value="{{decisor.id}}">{{decisor.nome}}</option>
-            {% endfor %}
-        </select>    
-
+                <option name="decisor_id" value="{{decisor.id}}">{{decisor.nome}}</option>
         <br>
-        <br>
-        <div id="criterios">
+        <div class="decisor">
         {% for criterios in criterios_combinados %}
+<div class="criterio" >
             <!-- {{criterios}} -->
             <strong>{{criterios.0.nome}} VS {{criterios.1.nome}}</strong>
             <br>
             <input style="margin-left: 1em" type="range" name="('{{criterios.0.nome}}','{{criterios.1.nome}}')" min=-3 max=3 step=1><br>
             <br>
+</div>
         {% endfor %}
         </div>  
         <hr>
-
+{% endfor %}
         <input type="submit" class="btn btn-outline-primary" value="Avaliar">
     </form>
     
